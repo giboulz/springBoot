@@ -13,3 +13,10 @@ Greetings from Spring Boot!
 
 ajout de health : 
 curl localhost:8080/health
+
+
+test repo : 
+https://spring.io/guides/gs/accessing-data-jpa/
+
+
+curl http://localhost:8080/customers

@@ -9,4 +9,6 @@ import com.gbz.entity.Customer;
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
     List<Customer> findByLastName(String lastName);
+    
+    List<Customer> findByLastNameAndFirstName(String lastName, String firstName); 
 }
