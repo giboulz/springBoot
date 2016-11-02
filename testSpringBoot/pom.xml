@@ -3,12 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.gbz</groupId>
 	<artifactId>testSpringBoot</artifactId>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>testSpringBoot</name>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+		<!-- <version>1.4.1.RELEASE</version> -->
 		<version>1.4.1.RELEASE</version>
 	</parent>
 
@@ -48,6 +49,7 @@
 		<!-- lombok -->
 		<!-- <dependency> <groupId>org.projectlombok</groupId> <artifactId>lombok</artifactId> 
 			<scope>provided</scope> </dependency> -->
+
 		<!-- cucumber -->
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -67,13 +69,29 @@
 			<version>1.2.4</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- living documentation -->
 		<dependency>
 			<groupId>org.technbolts.tzatziki</groupId>
 			<artifactId>tzatziki-pdf</artifactId>
 			<version>${tzatziki.version}</version>
 		</dependency>
+
+
+		<!-- connexion sybase -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<!-- <version>1.4</version> -->
+		</dependency>
+		<dependency>
+			<groupId>com.sybase.jdbc4</groupId>
+			<artifactId>jconn4</artifactId>
+			<version>1</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 
@@ -107,5 +125,30 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>jar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<packaging.type>jar</packaging.type>
+			</properties>
+		</profile>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging.type>war</packaging.type>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 </project>

@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gbz.entity.Customer;
@@ -18,43 +19,27 @@ import com.gbz.repository.CustomerRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("h2")
 public class DataAccessIntegrationTestTemplate {
 
-	private EmbeddedDatabase db;
 
 	@Autowired
 	private CustomerRepository repository;
 
-	@Before
-	public void setUp() {
-		// creates an HSQL in-memory database populated from default scripts
-		// classpath:schema.sql and classpath:data.sql
-		db = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).generateUniqueName(true)
-				// .addDefaultScripts()
-				.build();
-	}
 
-	@Test
-	@Ignore
-	public void testDataAccess() {
-		JdbcTemplate template = new JdbcTemplate(db);
-		int rowCount = template.queryForObject("select count(*) from customer", Integer.class);
-		System.out.println(rowCount);
 
-	}
+
 
 	@Test
 	public void testCreatingJpaObject() {
-		repository.save(new Customer("TEST", "INTEGRATION"));
+		repository.save(new Customer("TEST not save in database", "INTEGRATION2"));
 		
 		for (Customer customer : repository.findAll()) {
 			System.out.println(customer.toString());
 		}
+		
 	}
 
-	@After
-	public void tearDown() {
-		db.shutdown();
-	}
+
 
 }

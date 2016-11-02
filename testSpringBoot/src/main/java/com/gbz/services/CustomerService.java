@@ -15,6 +15,7 @@ import com.gbz.repository.CustomerRepository;
 @Transactional
 public class CustomerService {
 	private static final Logger log = LoggerFactory.getLogger(CustomerService.class);
+
 	@Autowired
 	CustomerRepository customerRepository;
 
@@ -24,8 +25,8 @@ public class CustomerService {
 		for (Customer customer : customers) {
 			log.info(customer.toString());
 		}
-		
-		return customers; 
+
+		return customers;
 	}
 
 }
