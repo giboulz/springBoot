@@ -38,5 +38,5 @@ profile Pool : connexion pool de connexion sur serveur via jndi
 
 Ajout profile Maven pour pouvoir générer un JAR ou un WAR : 
 mvn package -P war produit un WAR 
-mvn package -P jar produit un JAR.
+mvn package -P jar produit un JAR (default).
   

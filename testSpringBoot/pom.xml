@@ -135,9 +135,13 @@
 			<properties>
 				<packaging.type>jar</packaging.type>
 			</properties>
+
 		</profile>
 		<profile>
 			<id>war</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<properties>
 				<packaging.type>war</packaging.type>
 			</properties>
