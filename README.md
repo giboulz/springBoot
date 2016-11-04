@@ -47,29 +47,31 @@ Ajout profile Maven pour pouvoir générer un JAR ou un WAR :
   
 #Configuration TomCat pour ajout de pool de connexion : 
 context.xml : 
-<Context>
-.....
-	<ResourceLink name="jdbc/infoAceDB"
-                	global="jdbc/infoAceDataSource"
-                    auth="Container"
-                    type="javax.sql.DataSource" />
-</Context>
+
+    <Context>
+    .....
+	    <ResourceLink name="jdbc/infoAceDB"
+                    	global="jdbc/infoAceDataSource"
+                        auth="Container"
+                        type="javax.sql.DataSource" />
+    </Context>
 
 server.xml
-  <GlobalNamingResources>
-  
-  <Resource 
-      name="jdbc/infoAceDataSource"
-	  global="jdbc/infoAceDataSource" 
-      type="javax.sql.DataSource"
-      factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-      auth="Container"
-      username="******" 
-      password="*******"
-      driverClassName="com.sybase.jdbc4.jdbc.SybDriver"
-      url="jdbc:sybase:Tds:************/info_ace"
-	  	/> 
-		
-  </GlobalNamingResources>
+
+      <GlobalNamingResources>
+      
+      <Resource 
+          name="jdbc/infoAceDataSource"
+    	  global="jdbc/infoAceDataSource" 
+          type="javax.sql.DataSource"
+          factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+          auth="Container"
+          username="******" 
+          password="*******"
+          driverClassName="com.sybase.jdbc4.jdbc.SybDriver"
+          url="jdbc:sybase:Tds:************/info_ace"
+	  	    /> 
+    		
+      </GlobalNamingResources>
   
  Ajout de deux librairies dans tomcat : jcon4-1.jar & jtds-1.3.1.jar
