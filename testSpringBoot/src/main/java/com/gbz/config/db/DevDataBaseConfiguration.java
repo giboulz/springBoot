@@ -1,8 +1,5 @@
 package com.gbz.config.db;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +8,13 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
+
+
+
+
 
 
 //@EntityScan(basePackages = { "com.gbz.entity" })
@@ -24,9 +28,9 @@ public class DevDataBaseConfiguration {
 
 	
 	private static final String driver = "com.sybase.jdbc4.jdbc.SybDriver";
-	private static final String url = "jdbc:sybase:Tds:***************/info_ace?HOSTNAME=DataSquare&DB_CLOSE_ON_EXIT=FALSE";
+	private static final String url = "jdbc:sybase:Tds:s00va9926963.fr.net.intra:5500/info_ace?HOSTNAME=DataSquare&DB_CLOSE_ON_EXIT=FALSE";
 	private static final String user = "SICPADM";
-	private static final String password = "************";
+	private static final String password = "france";
 
 	@Bean
 	public DataSource dataSource() {

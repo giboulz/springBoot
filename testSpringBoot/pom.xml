@@ -13,6 +13,12 @@
 		<version>1.4.1.RELEASE</version>
 	</parent>
 
+	<properties>
+		<java.version>1.8</java.version>
+		<tzatziki.version>0.15.1</tzatziki.version>
+		<!-- <checkstyle.config.location>http://s00v09938498:8484/checkstylerules/ruleGPM.xml</checkstyle.config.location> -->
+	</properties>
+
 	<dependencies>
 		<!-- basic rest mvc -->
 		<dependency>
@@ -90,16 +96,19 @@
 			<version>1</version>
 		</dependency>
 
+		<!-- dev tools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
 
 
 	</dependencies>
 
 
 
-	<properties>
-		<java.version>1.8</java.version>
-		<tzatziki.version>0.15.1</tzatziki.version>
-	</properties>
+
 
 
 	<build>
@@ -119,10 +128,38 @@
 
 
 		<plugins>
+
+			<!-- maven spring boot starter -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!-- checkstyle as part of the build -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.17</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.gpm</groupId>
+						<artifactId>checkstylerules</artifactId>
+						<version>0.0.1</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<configLocation>ruleGPM.xml</configLocation>
+				</configuration>
+
+
+			</plugin>
+			<!-- pmd as part of the build <plugin> <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-pmd-plugin</artifactId> <version>3.7</version> <configuration> 
+				<linkXref>true</linkXref> <sourceEncoding>utf-8</sourceEncoding> <minimumTokens>100</minimumTokens> 
+				<targetJdk>1.8</targetJdk> <excludes> <exclude>**/*Bean.java</exclude> <exclude>**/generated/*.java</exclude> 
+				</excludes> <excludeRoots> <excludeRoot>target/generated-sources/stubs</excludeRoot> 
+				</excludeRoots> </configuration> </plugin> -->
+
 		</plugins>
 	</build>
 
@@ -153,5 +190,19 @@
 			</dependencies>
 		</profile>
 	</profiles>
+
+	<reporting>
+		<plugins>
+			<!-- CHECKSTYLE -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-checkstyle-plugin</artifactId> 
+				<version>2.17</version> <reportSets> <reportSet> <reports> <report>checkstyle</report> 
+				</reports> </reportSet> </reportSets> </plugin> -->
+			<!-- PMD <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-pmd-plugin</artifactId> 
+				<version>3.7</version> </plugin> -->
+
+		</plugins>
+
+
+	</reporting>
 
 </project>

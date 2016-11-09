@@ -1,4 +1,4 @@
-package com.gbz.BDD;
+package com.gbz.bdd;
 
 import org.junit.runner.RunWith;
 
@@ -13,9 +13,9 @@ import cucumber.api.junit.Cucumber;
 
 // @ActiveProfiles("test")
 @CucumberOptions(plugin = { "pretty",
-		"html:target/cucumber" }, features = "src/test/resources/features", monochrome = true/*, glue = {
-				"stepDefinition" }*/
-		,format = "tzatziki.analysis.exec.gson.JsonEmitterReport:target/myapp")
+		"html:target/cucumber" }, features = "src/test/resources/features", monochrome = true
+		/*, glue = {"stepDefinition" }*/,
+		format = "tzatziki.analysis.exec.gson.JsonEmitterReport:target/myapp")
 public class TestCucumber {
 
 }

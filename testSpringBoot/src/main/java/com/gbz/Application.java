@@ -9,7 +9,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class Application extends SpringBootServletInitializer {
 
 	/**
-	 * use for jar
+	 * use for jar.
 	 * 
 	 */
 	public static void main(String[] args) {

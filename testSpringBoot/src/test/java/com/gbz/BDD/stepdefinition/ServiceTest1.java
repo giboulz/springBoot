@@ -1,4 +1,7 @@
-package com.gbz.BDD.stepDefinition;
+package com.gbz.bdd.stepdefinition;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
@@ -16,20 +19,9 @@ import com.gbz.Application;
 import com.gbz.entity.Customer;
 import com.gbz.repository.CustomerRepository;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import static org.hamcrest.CoreMatchers.allOf;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-
 
 @SpringBootTest
 @WebAppConfiguration
@@ -53,7 +45,7 @@ public class ServiceTest1 {
 	}
 
 	@When("^I call my service$")
-	public void i_call_my_service() throws Throwable {
+	public void step_i_call_my_service() throws Throwable {
 		repository.save(new Customer("TEST", "INTEGRATION"));
 	}
 
@@ -70,15 +62,15 @@ public class ServiceTest1 {
 	}
 
 	@When("^i add customers :$")
-	public void i_add_customers(List<Customer> listCustomers) throws Throwable {
+	public void step_i_add_customers(List<Customer> listCustomers) throws Throwable {
 		repository.save(listCustomers);
 	}
 
 	@Then("^user list contains new entry :$")
 	public void user_list_contains_new_entry(List<Customer> listCustomers) throws Throwable {
-		for(Customer customer : listCustomers){
+		for (Customer customer : listCustomers) {
 			List<Customer> res = repository.findByLastNameAndFirstName(customer.getLastName(), customer.getFirstName());
-			assertThat(res.size(), is(1)); 
+			assertThat(res.size(), is(1));
 		}
 	}
 
@@ -88,12 +80,12 @@ public class ServiceTest1 {
 	}
 
 	@When("^I eat (\\d+) cucumbers$")
-	public void i_eat_cucumbers(int arg1) throws Throwable {
+	public void step_i_eat_cucumbers(int arg1) throws Throwable {
 
 	}
 
 	@Then("^I should have (\\d+) cucumbers$")
-	public void i_should_have_cucumbers(int arg1) throws Throwable {
+	public void step_i_should_have_cucumbers(int arg1) throws Throwable {
 
 	}
 

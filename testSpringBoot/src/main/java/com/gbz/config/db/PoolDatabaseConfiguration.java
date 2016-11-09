@@ -14,18 +14,17 @@ import org.springframework.jndi.JndiTemplate;
 public class PoolDatabaseConfiguration {
 
 	private static final Logger LOGGER = Logger.getLogger(PoolDatabaseConfiguration.class);
-	
-	
+
 	@Bean
-    DataSource dataSource() {
-        DataSource dataSource = null;
-        JndiTemplate jndi = new JndiTemplate();
-        try {
-            dataSource = (DataSource) jndi.lookup("java:comp/env/jdbc/infoAceDB");
-        } catch (NamingException e) {
-        	LOGGER.error("NamingException for java:comp/env/jdbc/infoAceDB", e);
-        }
-        return dataSource;
-    }
-	
+	DataSource dataSource() {
+		DataSource dataSource = null;
+		JndiTemplate jndi = new JndiTemplate();
+		try {
+			dataSource = (DataSource) jndi.lookup("java:comp/env/jdbc/infoAceDB");
+		} catch (NamingException exception) {
+			LOGGER.error("NamingException for java:comp/env/jdbc/infoAceDB", exception);
+		}
+		return dataSource;
+	}
+
 }

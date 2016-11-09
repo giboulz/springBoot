@@ -26,17 +26,17 @@ curl http://localhost:8080/customers
 http://docs.spring.io/autorepo/docs/spring-boot/current/reference/html/boot-features-profiles.html
 
 
-#gestion des profils
+#Gestion des profils spring
 
 gestion dans application.properties
 ou ligne de commande : 
 --spring.profiles.active=dev,hsqldb.
 
-profile h2 : bdd à la volée
+profile h2 : bdd à la volée (non persistante)
 profile Dev : connexion direct à la BDD
 profile Pool : connexion pool de connexion sur serveur via jndi
 
-
+TODO : ajouter la ligne de commande pour activer un profil par défault
 
 #Profil Maven : 
 
@@ -44,6 +44,7 @@ Ajout profile Maven pour pouvoir générer un JAR ou un WAR :
 "mvn package -P war" produit un WAR 
 "mvn package -P jar" produit un JAR (default).
   
+TODO : curl http://localhost:8080/testSpringBoot/customers
   
 #Configuration TomCat pour ajout de pool de connexion : 
 context.xml : 
@@ -75,3 +76,39 @@ server.xml
       </GlobalNamingResources>
   
  Ajout de deux librairies dans tomcat : jcon4-1.jar & jtds-1.3.1.jar
+ 
+# Ajout de DevTools 
+
+pour le restart automatique. 
+
+#Installation checkstyle : 
+checkstyle : jar (a dl)
+déploiement des règles en dev : 
+http://DEV/checkstylerules/ruleGPM.xml
+TODO : Not working Atm. 
+
+#Exemple Typical Controlleur
+
+*Query all customers : 
+curl http://localhost:8080/customers
+
+*Query One customer by id
+curl http://localhost:8080/customer/1
+
+*Adding new Customer : 
+(via postman) requete post http://localhost:8080/customer/create
+avec le flux (json) : 
+{
+	"lastName":"jean", 
+	"firstName":"jean"
+}
+
+*Modifiying customer : 
+PUT : http://localhost:8080/customer/6
+
+{
+	"lastName":"jean Modified", 
+	"firstName":"jean Modified"
+}
+
+*Delete Customer
