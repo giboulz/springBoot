@@ -28,23 +28,22 @@ public class CustomerService {
 
 		return customers;
 	}
-	
-	public Customer getCustomerById(long id){
+
+	public Customer getCustomerById(long id) {
 		Customer customer = customerRepository.findOne(id);
-		return customer; 
+		return customer;
 	}
-	
-	public Customer createCustomer(Customer data){
-		Customer customerSaved = customerRepository.save(data); 
-		return customerSaved; 
+
+	public Customer createCustomer(Customer data) {
+		Customer customerSaved = customerRepository.save(data);
+		return customerSaved;
 	}
 
 	public Customer updateCustomer(long idCustomer, Customer customer) {
-		Customer entity = customerRepository.findOne(idCustomer); 
+		Customer entity = customerRepository.findOne(idCustomer);
 		entity.setFirstName(customer.getFirstName());
 		entity.setLastName(customer.getLastName());
-		customerRepository.save(entity); 
-		return entity;
+		return customerRepository.save(entity);
 	}
 
 	public void deleteCustomer(long idCustomer) {

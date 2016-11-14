@@ -96,7 +96,7 @@ curl http://localhost:8080/customers
 curl http://localhost:8080/customer/1
 
 *Adding new Customer : 
-(via postman) requete post http://localhost:8080/customer/create
+(via postman) requete post http://localhost:8080/customer
 avec le flux (json) : 
 {
 	"lastName":"jean", 

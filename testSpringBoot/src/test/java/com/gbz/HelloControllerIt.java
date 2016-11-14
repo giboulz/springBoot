@@ -44,15 +44,20 @@ public class HelloControllerIt {
 
 	@Test
 	public void getListCustomers() throws Exception {
-		// ResponseEntity<List<Customer>> response =
-		// (ResponseEntity<List<Customer>>)
-		// template.getForEntity(base.toString()+"/customers", new
-		// ArrayList<Customer>().getClass() );
 
-		// assertThat(response.getBody(), equalTo("<[{id=1, firstName=Jack,
-		// lastName=Bauer}, {id=2, firstName=Chloe, lastName=O'Brian}, {id=3,
-		// firstName=Kim, lastName=Bauer}, {id=4, firstName=David,
-		// lastName=Palmer}, {id=5, firstName=Michelle, lastName=Dessler}]>"));
+		ResponseEntity<List<Customer>> response = (ResponseEntity<List<Customer>>) template.getForEntity(base + "/customers",
+				new ArrayList<Customer>().getClass());
+
+		/*
+		 * ResponseEntity<List<Customer>> response =
+		 * (ResponseEntity<List<Customer>>) template
+		 * .getForEntity(base.toString() + "/customers", new
+		 * ArrayList<Customer>().getClass());
+		 * 
+		 * assertThat(response.getBody(), equalTo(
+		 * "<[{id=1, firstName=Jack,lastName=Bauer},id=2,firstName=Chloe,lastName=O'Brian},{id=3,firstName=Kim,lastName=Bauer},{id=4,firstName=David,lastName=Palmer},{id=5,firstName=Michelle,lastName=Dessler}]>"
+		 * ));
+		 */
 	}
 
 }

@@ -38,26 +38,22 @@ public class HelloController {
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/customer/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/customer", method = RequestMethod.POST)
 	public ResponseEntity<Customer> addNewCustomer(@RequestBody Customer customer) {
-		Customer newCustomer = customerService.createCustomer(customer); 
+		Customer newCustomer = customerService.createCustomer(customer);
 		return new ResponseEntity<Customer>(newCustomer, HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long idCustomer, @RequestBody Customer customer) {
-		
-		Customer result = customerService.updateCustomer(idCustomer, customer); 
-
-		// TODO
+	public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long idCustomer,
+			@RequestBody Customer customer) {
+		Customer result = customerService.updateCustomer(idCustomer, customer);
 		return new ResponseEntity<Customer>(result, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteCustomer(@PathVariable("id") long idCustomer) {
-		customerService.deleteCustomer(idCustomer); 
-
-		// TODO
+		customerService.deleteCustomer(idCustomer);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
