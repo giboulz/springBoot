@@ -1,4 +1,4 @@
-# springBoot
+﻿# springBoot
 
 https://spring.io/guides/gs/spring-boot/
 
@@ -112,3 +112,26 @@ PUT : http://localhost:8080/customer/6
 }
 
 *Delete Customer
+delete : http://localhost:8080/customer/6
+
+
+#Spring Security : 
+https://auth0.com/blog/securing-spring-boot-with-jwts/
+https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/01-Authentication
+
+utilisation de jeton jwt (lib JJWT)
+GET http://localhost:8080/needAuth
+erreur de droit
+
+il faut se logger : 
+POST http://localhost:8080/login
+body(raw) : {"username":"admin","password":"password"}
+
+Dans le retour : recupérer le header "bearer" : 
+exemple : eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTQ4MTE5NTI3OH0.-yQBExfmJB9Liws0WjwT9wGS46TcQK8uy-SHTG3wxEHoGMPLzG6_OhOdkJ_4pWC0mDYlUNrxObW7v0MDpGIgZQ
+
+Ensuite : 
+GET http://localhost:8080/needAuth
+avec dans le header : 
+Authorization : token copié précédement. 
+et la nous pouvons acceder à la ressource. 

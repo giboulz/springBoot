@@ -102,7 +102,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-		
+
 
 		<!-- test Mockito -->
 		<dependency>
@@ -111,9 +111,20 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
-		
-		
-		
+
+		<!-- jeton jwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+
+		<!-- spring boot security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 	</dependencies>
 
 
@@ -144,7 +155,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<!-- checkstyle as part of the build -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

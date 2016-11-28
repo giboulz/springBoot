@@ -25,6 +25,11 @@ public class HelloController {
 	public String index() {
 		return "Greetings from Spring Boot!";
 	}
+	
+	@RequestMapping("/needAuth")
+	public String indexNeedAuth() {
+		return "you are in an authorized zone!";
+	}
 
 	@RequestMapping(value = "/customers", method = RequestMethod.GET)
 	public ResponseEntity<List<Customer>> getAllCustomers() {
