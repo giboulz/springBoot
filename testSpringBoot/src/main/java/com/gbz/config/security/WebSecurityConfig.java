@@ -24,6 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.csrf().disable().addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
 		.authorizeRequests().antMatchers("/", "/customers", "/customer/*", "/customer").permitAll()
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.anyRequest().authenticated().and()
 				// We filter the api/login requests
