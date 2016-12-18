@@ -44,9 +44,10 @@ public class HelloControllerIt {
 
 	@Test
 	public void getListCustomers() throws Exception {
-
+/*
 		ResponseEntity<List<Customer>> response = (ResponseEntity<List<Customer>>) template.getForEntity(base + "/customers",
 				new ArrayList<Customer>().getClass());
+				*/
 
 		/*
 		 * ResponseEntity<List<Customer>> response =
