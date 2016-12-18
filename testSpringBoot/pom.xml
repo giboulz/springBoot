@@ -84,18 +84,19 @@
 		</dependency>
 
 
-		<!-- connexion sybase -->
+		<!-- connexion sybase  <version>1.4</version> 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<!-- <version>1.4</version> -->
+			
 		</dependency>
 		<dependency>
 			<groupId>com.sybase.jdbc4</groupId>
 			<artifactId>jconn4</artifactId>
 			<version>1</version>
 		</dependency>
-
+		-->
+		
 		<!-- dev tools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
