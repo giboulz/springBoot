@@ -70,7 +70,7 @@ public class JwtTokenLibTest {
 		Jwts.parser().setSigningKey(key).parseClaimsJws(compactJws);
 
 	}
-
+/*
 	@Test
 	@Ignore
 	public void test_token() {
@@ -86,6 +86,6 @@ public class JwtTokenLibTest {
 		System.out.println(listLdapUser);
 		System.out.println("fin");
 	}
-
+*/
 }
 
