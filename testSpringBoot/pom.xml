@@ -84,12 +84,14 @@
 		</dependency>
 
 
-		<!-- connexion sybase  <version>1.4</version> 
+		<!-- connexion sybase  -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			
+			<!--<version>1.4</version> -->
 		</dependency>
+		
+		<!--  driver sybase is not available on maven central
 		<dependency>
 			<groupId>com.sybase.jdbc4</groupId>
 			<artifactId>jconn4</artifactId>

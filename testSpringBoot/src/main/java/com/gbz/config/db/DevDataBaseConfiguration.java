@@ -27,10 +27,10 @@ public class DevDataBaseConfiguration {
 	private static final Logger LOGGER = Logger.getLogger(DevDataBaseConfiguration.class);
 
 	
-	private static final String driver = "com.sybase.jdbc4.jdbc.SybDriver";
-	private static final String url = "jdbc:sybase:Tds:s00va9926963.fr.net.intra:5500/info_ace?HOSTNAME=DataSquare&DB_CLOSE_ON_EXIT=FALSE";
-	private static final String user = "SICPADM";
-	private static final String password = "france";
+	private static final String driver = "a remplir ou com.sybase.jdbc4.jdbc.SybDriver";
+	private static final String url = "a remplir ou jdbc:sybase:Tds:s00va9926963.fr.net.intra:5500/info_ace?HOSTNAME=DataSquare&DB_CLOSE_ON_EXIT=FALSE";
+	private static final String user = "user";
+	private static final String password = "password";
 
 	@Bean
 	public DataSource dataSource() {

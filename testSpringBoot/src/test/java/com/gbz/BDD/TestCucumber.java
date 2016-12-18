@@ -1,4 +1,4 @@
-package com.gbz.bdd;
+package com.gbz.BDD;
 
 import org.junit.runner.RunWith;
 
