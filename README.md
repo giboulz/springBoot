@@ -142,5 +142,3 @@ https://github.com/rmpestano/cukedoctor
 mvn cukedoctor:execute
 
 le résultat se génère dans /target/docs/documentation.pdf
-
-2 tests ne passent pas de manière intentionelle (feature "Calculator")
