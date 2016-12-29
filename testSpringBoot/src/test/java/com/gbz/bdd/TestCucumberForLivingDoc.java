@@ -12,9 +12,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 
 // @ActiveProfiles("test")
-@CucumberOptions(plugin = { "pretty",
-		"html:target/cucumber" }, features = "src/test/resources/features", monochrome = true
-		/*, glue = {"stepDefinition" }*/)
-public class TestCucumber {
+@CucumberOptions(plugin = { "json:target/cucumber.json" }, features = "src/test/resources/features")
+public class TestCucumberForLivingDoc {
 
 }

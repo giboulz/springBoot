@@ -1,4 +1,4 @@
-package com.gbz.BDD.stepdefinition;
+package com.gbz.bdd.stepdefinition;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

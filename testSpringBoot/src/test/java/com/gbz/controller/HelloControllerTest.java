@@ -33,7 +33,9 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.gbz.entity.Customer;
 import com.gbz.services.CustomerService;
-import com.google.gson.Gson;
+
+import gherkin.deps.com.google.gson.Gson;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

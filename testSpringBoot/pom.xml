@@ -9,13 +9,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!-- <version>1.4.1.RELEASE</version> -->
 		<version>1.4.1.RELEASE</version>
+		<!-- <version>1.4.3.RELEASE</version> -->
 	</parent>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<tzatziki.version>0.15.1</tzatziki.version>
 		<!-- <checkstyle.config.location>http://s00v09938498:8484/checkstylerules/ruleGPM.xml</checkstyle.config.location> -->
 	</properties>
 
@@ -76,29 +75,16 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- living documentation -->
-		<dependency>
-			<groupId>org.technbolts.tzatziki</groupId>
-			<artifactId>tzatziki-pdf</artifactId>
-			<version>${tzatziki.version}</version>
-		</dependency>
-
-
-		<!-- connexion sybase  -->
+		<!-- connexion sybase -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<!--<version>1.4</version> -->
 		</dependency>
-		
-		<!--  driver sybase is not available on maven central
-		<dependency>
-			<groupId>com.sybase.jdbc4</groupId>
-			<artifactId>jconn4</artifactId>
-			<version>1</version>
-		</dependency>
-		-->
-		
+
+		<!-- driver sybase is not available on maven central <dependency> <groupId>com.sybase.jdbc4</groupId> 
+			<artifactId>jconn4</artifactId> <version>1</version> </dependency> -->
+
 		<!-- dev tools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -174,15 +160,44 @@
 				<configuration>
 					<configLocation>ruleGPM.xml</configLocation>
 				</configuration>
-
-
 			</plugin>
+			
 			<!-- pmd as part of the build <plugin> <groupId>org.apache.maven.plugins</groupId> 
 				<artifactId>maven-pmd-plugin</artifactId> <version>3.7</version> <configuration> 
 				<linkXref>true</linkXref> <sourceEncoding>utf-8</sourceEncoding> <minimumTokens>100</minimumTokens> 
 				<targetJdk>1.8</targetJdk> <excludes> <exclude>**/*Bean.java</exclude> <exclude>**/generated/*.java</exclude> 
 				</excludes> <excludeRoots> <excludeRoot>target/generated-sources/stubs</excludeRoot> 
 				</excludeRoots> </configuration> </plugin> -->
+
+
+			<!-- living documentation -->
+			<plugin>
+				<groupId>com.github.cukedoctor</groupId>
+				<artifactId>cukedoctor-maven-plugin</artifactId>
+				<version>1.0.6</version>
+				<configuration>
+					<outputFileName>documentation</outputFileName>
+					<outputDir>docs</outputDir>
+					<!-- pdf and html -->
+					<format>all</format>
+					<toc>left</toc>
+					<numbered>true</numbered>
+					<docVersion>${project.version}</docVersion>
+					<documentTitle>Specification with BDD</documentTitle>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<phase>verify</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>com.github.cukedoctor</groupId> <artifactId>cukedoctor-maven-plugin</artifactId> 
+				<version>1.0.6</version> <executions> <execution> <goals> <goal>execute</goal> 
+				</goals> <phase>install</phase> </execution> </executions> </plugin> -->
 
 		</plugins>
 	</build>

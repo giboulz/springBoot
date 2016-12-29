@@ -135,3 +135,12 @@ GET http://localhost:8080/needAuth
 avec dans le header : 
 Authorization : token copié précédement. 
 et la nous pouvons acceder à la ressource. 
+
+
+#Living documentation
+https://github.com/rmpestano/cukedoctor
+mvn cukedoctor:execute
+
+le résultat se génère dans /target/docs/documentation.pdf
+
+2 tests ne passent pas de manière intentionelle (feature "Calculator")
