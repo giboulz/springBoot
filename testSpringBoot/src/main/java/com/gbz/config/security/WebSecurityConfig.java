@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().cacheControl();
 
 		http.csrf().disable().addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
-		.authorizeRequests().antMatchers("/", "/customers", "/customer/*", "/customer").permitAll()
+		.authorizeRequests().antMatchers("/", "/customers", "/customer/*", "/customer", "/customersSummaryView").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 				.antMatchers(HttpMethod.POST, "/login").permitAll()
 				.anyRequest().authenticated().and()

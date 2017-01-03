@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.gbz.views.Views;
+
 @Entity
 @Table(name = "CUSTOMERS")
 public class Customer {
@@ -20,8 +23,12 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private Long id;
+	
+	@JsonView(Views.Public.class)
 	@Column(name = "FIRST_NAME")
 	private String firstName;
+	
+	@JsonView(Views.Public.class)
 	@Column(name = "LAST_NAME")
 	private String lastName;
 

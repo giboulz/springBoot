@@ -142,3 +142,37 @@ https://github.com/rmpestano/cukedoctor
 mvn cukedoctor:execute
 
 le résultat se génère dans /target/docs/documentation.pdf
+
+#Création de l'archetype
+dans l'application d'exemple : mvn archetype:create-from-project
+
+le résultat est situé dans "target/generated-sources/archetype"
+
+et est a copié dans le répertoire archetype
+
+#Installation de l'archetype 
+Dans l'archetype : 
+mvn install
+
+puis génération avec : 
+mvn archetype:generate -DarchetypeCatalog=local
+
+qui permet de choisir dans sa bibliothèque local. 
+
+
+#Deployement sur Nexus : 
+
+Ajout dans le pom de l'archetype
+
+  	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://MACHINE/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://MACHINE/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
+
+Ensuite mvn deploy. 

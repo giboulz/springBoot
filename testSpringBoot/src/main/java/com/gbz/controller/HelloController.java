@@ -2,8 +2,10 @@ package com.gbz.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.gbz.entity.Customer;
 import com.gbz.services.CustomerService;
+import com.gbz.views.Views;
 
 import java.util.List;
 
@@ -60,6 +62,13 @@ public class HelloController {
 	public ResponseEntity<Void> deleteCustomer(@PathVariable("id") long idCustomer) {
 		customerService.deleteCustomer(idCustomer);
 		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+	
+	@JsonView(Views.Public.class)
+	@RequestMapping(value = "/customersSummaryView", method = RequestMethod.GET)
+	public ResponseEntity<List<Customer>> getCustomersWithView() {
+		List<Customer> customers = customerService.getAllCustomers();
+		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
 	}
 
 }
