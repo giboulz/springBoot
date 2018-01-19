@@ -139,6 +139,7 @@ et la nous pouvons acceder à la ressource.
 
 #Living documentation
 https://github.com/rmpestano/cukedoctor
+
 mvn cukedoctor:execute
 
 le résultat se génère dans /target/docs/documentation.pdf
