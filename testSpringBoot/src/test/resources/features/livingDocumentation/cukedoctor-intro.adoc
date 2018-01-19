@@ -1,6 +1,6 @@
-= *This is a sample introduction chapter*
+= *This is SPARTA!!!!!!!!!!*
 
-Introduction chapter is the place where you can insert custom content for your living documentation.
+On peut mettre ici a peut être ce que l'on veut en mode markup
 
 === Sub section
 Introduction chapter can have subsections

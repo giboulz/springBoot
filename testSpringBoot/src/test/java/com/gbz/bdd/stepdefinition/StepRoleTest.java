@@ -27,7 +27,6 @@ import cucumber.api.java.en.When;
 
 @SpringBootTest
 @WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { Application.class })
 public class StepRoleTest {
 	@Given("^un utilisateur sans rôles$")
